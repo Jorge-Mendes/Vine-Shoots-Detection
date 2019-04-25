@@ -2,6 +2,7 @@ from getkey import getkey, keys
 import sys
 import glob
 import os
+import time
 
 clear = lambda: os.system('clear')
 clear()
@@ -90,6 +91,7 @@ def captureImage(image_path, image_class, image_numb):
 	except:
 		# Create a dummy file
 		dummy_file = open(final_path, "w")
+		time.sleep(1)
 		dummy_file.close()
 
 
