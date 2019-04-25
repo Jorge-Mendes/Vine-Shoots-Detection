@@ -12,8 +12,8 @@ try:
 except:
 	print "\nCould not 'import picamera'!\nDummy files will be created!"
 
-greater_than_10_images_path = "dataset/greater_than_10/"
-smaller_than_10_images_path = "dataset/smaller_than_10/"
+greater_than_10_images_path = "dataset/whole_images/greater_than_10/"
+smaller_than_10_images_path = "dataset/whole_images/smaller_than_10/"
 greater_than_10_images_class = "greater_than_10"
 smaller_than_10_images_class = "smaller_than_10"
 greater_than_10_last_image = 1
