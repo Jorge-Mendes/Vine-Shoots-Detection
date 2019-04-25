@@ -9,7 +9,7 @@ clear()
 try:
 	import picamera
 except:
-	print "\nCould not 'import picamera'!"
+	print "\nCould not 'import picamera'!\nDummy files will be created!"
 
 greater_than_10_images_path = "dataset/greater_than_10/"
 smaller_than_10_images_path = "dataset/smaller_than_10/"
@@ -18,9 +18,9 @@ smaller_than_10_images_class = "smaller_than_10"
 greater_than_10_last_image = 1
 smaller_than_10_last_image = 1
 
-#================================#
-#=== GET THE LAST FILE NUMBER ===#
-#================================#
+#=================================#
+#=== GET THE LAST IMAGE NUMBER ===#
+#=================================#
 def verify_dataset():
 	global greater_than_10_last_image
 	global smaller_than_10_last_image
@@ -63,9 +63,9 @@ def verify_dataset():
 	print "\nPress:\n\tDOWN to save image in <10cm class\n\tUP to save image in >10cm class\n\tESC to exit\n"
 	print "Press a key..."
 
-#================================#
-#======== CAPTURE IMAGE =========#
-#================================#
+#=================================#
+#========= CAPTURE IMAGE =========#
+#=================================#
 def captureImage(image_path, image_class, image_numb):
 	# Generate the picture's name
 	if image_numb <= 9:
@@ -88,8 +88,9 @@ def captureImage(image_path, image_class, image_numb):
 			#camera.brightness = 50
 			camera.capture(picPath + image_name)
 	except:
-		outF = open(final_path, "w")
-		outF.close()
+		# Create a dummy file
+		dummy_file = open(final_path, "w")
+		dummy_file.close()
 
 
 #################################
