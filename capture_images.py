@@ -1,3 +1,9 @@
+# Do the following to run at the RPi startup:
+#	- Add the following line to crontab (crontab -e):
+# 		@reboot sh /home/pi/Desktop/Vine-Shoots-Detection/run_capture_images.sh
+#	- Give execution permissions to script:
+#		sudo chmod a+x /home/pi/Desktop/Vine-Shoots-Detection/capture_images.py
+
 #from getkey import getkey, keys
 import sys
 import glob
