@@ -1,4 +1,4 @@
-from getkey import getkey, keys
+#from getkey import getkey, keys
 import sys
 import glob
 import os
@@ -21,8 +21,8 @@ try:
 except:
 	print "\nCould not 'import picamera'!\nDummy files will be created!"
 
-greater_than_10_images_path = "dataset/whole_images/greater_than_10/"
-smaller_than_10_images_path = "dataset/whole_images/smaller_than_10/"
+greater_than_10_images_path = "/home/pi/Desktop/Vine-Shoots-Detection/dataset/whole_images/greater_than_10/"
+smaller_than_10_images_path = "/home/pi/Desktop/Vine-Shoots-Detection/dataset/whole_images/smaller_than_10/"
 greater_than_10_images_class = "greater_than_10"
 smaller_than_10_images_class = "smaller_than_10"
 greater_than_10_last_image = 1
@@ -129,23 +129,25 @@ def captureImage(image_path, image_class, image_numb):
 #################################
 verify_dataset()
 while True:
-	key = getkey()
-	if key == keys.DOWN:
-		print "Save image in <10cm class..."
-		captureImage(smaller_than_10_images_path, smaller_than_10_images_class, smaller_than_10_last_image)
-		#smaller_than_10_last_image += 1
-		clear()
-		verify_dataset()
-	elif key == keys.UP:
-		print "Save image in >10cm class..."
-		captureImage(greater_than_10_images_path, greater_than_10_images_class, greater_than_10_last_image)
-		#greater_than_10_last_image += 1
-		clear()
-		verify_dataset()
-	elif key == keys.ESC:
-		print "ESC key pressed... Exit the script!\n"
-		sys.exit()
-	else:
-		print "Wrong key pressed!\n\nPress a key..."
-		#pass
+        time.sleep(0.5)
+        #pass
+	#key = getkey()
+	#if key == keys.DOWN:
+	#	print "Save image in <10cm class..."
+	#	captureImage(smaller_than_10_images_path, smaller_than_10_images_class, smaller_than_10_last_image)
+	#	#smaller_than_10_last_image += 1
+	#	clear()
+	#	verify_dataset()
+	#elif key == keys.UP:
+	#	print "Save image in >10cm class..."
+	#	captureImage(greater_than_10_images_path, greater_than_10_images_class, greater_than_10_last_image)
+	#	#greater_than_10_last_image += 1
+	#	clear()
+	#	verify_dataset()
+	#elif key == keys.ESC:
+	#	print "ESC key pressed... Exit the script!\n"
+	#	sys.exit()
+	#else:
+	#	print "Wrong key pressed!\n\nPress a key..."
+	#	#pass
 
