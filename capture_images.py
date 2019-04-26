@@ -4,6 +4,15 @@ import glob
 import os
 import time
 
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BOARD)
+
+pin_greater = 32
+pin_smaller = 36
+
+GPIO.setup(pin_greater, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(pin_smaller, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
 clear = lambda: os.system('clear')
 clear()
 
@@ -18,6 +27,25 @@ greater_than_10_images_class = "greater_than_10"
 smaller_than_10_images_class = "smaller_than_10"
 greater_than_10_last_image = 1
 smaller_than_10_last_image = 1
+
+def pin_smaller_callback(a):
+        print "Save image in <10cm class..."
+	captureImage(smaller_than_10_images_path, smaller_than_10_images_class, smaller_than_10_last_image)
+	#smaller_than_10_last_image += 1
+	clear()
+	verify_dataset()
+
+def pin_greater_callback(a):
+        print "Save image in >10cm class..."
+	captureImage(greater_than_10_images_path, greater_than_10_images_class, greater_than_10_last_image)
+	#greater_than_10_last_image += 1
+	clear()
+	verify_dataset()
+
+
+GPIO.add_event_detect(pin_greater, GPIO.FALLING, callback=pin_greater_callback, bouncetime=3000)
+GPIO.add_event_detect(pin_smaller, GPIO.FALLING, callback=pin_smaller_callback, bouncetime=3000)
+
 
 #=================================#
 #=== GET THE LAST IMAGE NUMBER ===#
