@@ -124,7 +124,7 @@ def captureImage(image_path, image_class, image_numb):
 		with picamera.PiCamera() as camera:
 			camera.resolution = (2592, 1944)        # 5MP (Camera Module v1)
 			#camera.resolution = (3280, 2464)        # 8MP (Camera Module v2)
-			#camera.rotation = 180
+			camera.rotation = 180
 			#camera.saturation = 0
 			#camera.brightness = 50
 			camera.capture(final_path)
