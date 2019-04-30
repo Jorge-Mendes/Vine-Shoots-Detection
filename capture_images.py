@@ -122,13 +122,20 @@ def captureImage(image_path, image_class, image_numb):
 
 	try:
 		with picamera.PiCamera() as camera:
-			camera.resolution = (2592, 1944)        # 5MP (Camera Module v1)
-			#camera.resolution = (3280, 2464)        # 8MP (Camera Module v2)
+			camera.resolution = (2592, 1944)	# 5MP (Camera Module v1)
+			#camera.resolution = (3280, 2464)	# 8MP (Camera Module v2)
 			camera.rotation = 180
+			#camera.exposure_mode = 'auto'		# original
+			camera.exposure_mode = 'off'		# o mais escuro de todos
+			#camera.exposure_mode = 'beach'		# usar este se o 'off' for muito escuro
 			#camera.saturation = 0
 			#camera.brightness = 50
+			#camera.iso = 100
+			camera.shutter_speed = 1500
 			camera.capture(final_path)
-	except:
+			#https://picamera.readthedocs.io/en/release-1.13/recepies1.html
+	except Exception as e:
+		print "Error:", e
 		# Create a dummy file
 		dummy_file = open(final_path, "w")
 		time.sleep(1)
