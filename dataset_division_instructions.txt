@@ -1,0 +1,9 @@
+
+60% -> Treino
+30% -> Validação 
+10% -> Teste
+
+Usar o K-Fold Cross-Validation
+
+VGG Image Annotator:
+http://www.robots.ox.ac.uk/~vgg/software/via/
